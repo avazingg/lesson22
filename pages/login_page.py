@@ -19,3 +19,9 @@ class LoginPage(BasePage):
 
     def get_error_message(self):
         return self.find_element(self.ERROR_MESSAGE).text
+
+    def valid_login(self):
+        self.open_url("https://www.saucedemo.com/")
+        self.enter_username("standard_user")
+        self.enter_password("secret_sauce")
+        self.click_login()

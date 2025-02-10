@@ -7,10 +7,8 @@ from pages.inventory_page import InventoryPage
 def test_add_selected_item_into_cart(driver):
     login_page = LoginPage(driver)
     inventory_page = InventoryPage(driver)
-    login_page.open_url("https://www.saucedemo.com/")
-    login_page.enter_username("standard_user")
-    login_page.enter_password("secret_sauce")
-    login_page.click_login()
+
+    login_page.valid_login()
 
     assert "inventory" in driver.current_url, "wrong URL"
 

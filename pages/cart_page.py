@@ -1,4 +1,3 @@
-from selenium.common import NoSuchElementException
 from selenium.webdriver.common.by import By
 
 from pages.base_page import BasePage
@@ -10,6 +9,7 @@ class CartPage(BasePage):
     FLEECE_JACKET_REMOVE_BUTTON = (By.ID, "remove-sauce-labs-fleece-jacket")
     ONESIE_REMOVE_BUTTON = (By.ID, "remove-sauce-labs-onesie")
     RED_SWEATER_REMOVE_BUTTON = (By.ID, "remove-test.allthethings()-t-shirt-(red)")
+    CHECKOUT_BUTTON = (By.ID, "checkout")
 
     def selected_element_exists(self, element):
         assert self.find_element(element), f"no {element} located on the page"

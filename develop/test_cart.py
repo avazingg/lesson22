@@ -10,10 +10,7 @@ def test_cart_items(driver):
     inventory_page = InventoryPage(driver)
     cart_page = CartPage(driver)
 
-    login_page.open_url("https://www.saucedemo.com/")
-    login_page.enter_username("standard_user")
-    login_page.enter_password("secret_sauce")
-    login_page.click_login()
+    login_page.valid_login()
 
     assert "inventory" in driver.current_url, "wrong URL"
 
@@ -32,10 +29,7 @@ def test_cart_items_add_and_remove(driver):
     inventory_page = InventoryPage(driver)
     cart_page = CartPage(driver)
 
-    login_page.open_url("https://www.saucedemo.com/")
-    login_page.enter_username("standard_user")
-    login_page.enter_password("secret_sauce")
-    login_page.click_login()
+    login_page.valid_login()
 
     assert "inventory" in driver.current_url, "wrong URL"
 
