@@ -2,11 +2,11 @@ from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 
 class CheckOutPage(BasePage):
-    FIRST_NAME = (By.ID, "first-name")
-    LAST_NAME = (By.ID, "last-name")
-    POSTAL_CODE = (By.ID, "postal-code")
-    SUBMIT_BUTTON = (By.CLASS_NAME, "submit-button")
-    CANCEL_BUTTON = (By.ID, "cancel")
+    FIRST_NAME = "#first-name"
+    LAST_NAME = "#last-name"
+    POSTAL_CODE = "#postal-code"
+    SUBMIT_BUTTON = ".submit-button"
+    CANCEL_BUTTON = "#cancel"
 
     def enter_first_name(self, firstname):
         self.enter_text(self.FIRST_NAME, firstname)

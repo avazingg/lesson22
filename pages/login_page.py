@@ -1,12 +1,12 @@
-from selenium.webdriver.common.by import By
+
 from pages.base_page import BasePage
 
 
 class LoginPage(BasePage):
-    USERNAME_INPUT = (By.ID, "user-name")
-    PASSWORD_INPUT = (By.ID, "password")
-    LOGIN_BUTTON = (By.ID, "login-button")
-    ERROR_MESSAGE = (By.CLASS_NAME, "error-message-container")
+    USERNAME_INPUT = "#user-name"
+    PASSWORD_INPUT = "#password"
+    LOGIN_BUTTON = "#login-button"
+    ERROR_MESSAGE = ".error-message-container"
 
     def enter_username(self, username):
         self.enter_text(self.USERNAME_INPUT, username)

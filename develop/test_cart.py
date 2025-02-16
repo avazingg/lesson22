@@ -12,7 +12,7 @@ def test_cart_items(driver):
 
     login_page.valid_login()
 
-    assert "inventory" in driver.current_url, "wrong URL"
+    assert "inventory" in driver.url, "wrong URL"
 
     inventory_page.click_on_selected_element(inventory_page.BACKPACK_BUTTON)
     inventory_page.click_on_selected_element(inventory_page.BIKE_LIGHTS_BUTTON)
@@ -31,7 +31,7 @@ def test_cart_items_add_and_remove(driver):
 
     login_page.valid_login()
 
-    assert "inventory" in driver.current_url, "wrong URL"
+    assert "inventory" in driver.url, "wrong URL"
 
     inventory_page.click_on_selected_element(inventory_page.BACKPACK_BUTTON)
     inventory_page.click_on_selected_element(inventory_page.BIKE_LIGHTS_BUTTON)
