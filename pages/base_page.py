@@ -1,26 +1,21 @@
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
-from selenium.common.exceptions import TimeoutException
-
-
-class BasePage():
+class BasePage:
     def __init__(self, driver):
         self.driver = driver
 
     def open_url(self, url):
-        self.driver.get(url)
+        self.driver.goto(url)
 
-    def find_element(self, locator, timeout=10):
+    def find_element(self, selector, timeout=10000):
         try:
-            return WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located(locator))
-        except TimeoutException:
+            return self.driver.wait_for_selector(selector, timeout=timeout)
+        except Exception:
             return None
 
-    def click_element(self, locator, timeout=10):
-        self.find_element(locator, timeout).click()
+    def click_element(self, selector, timeout=10000):
+        element = self.find_element(selector, timeout)
+        if element:
+            element.click()
 
-    def enter_text(self, locator, text, timeout=10):
-        element = self.find_element(locator, timeout)
-        element.clear()
-        element.send_keys(text)
+    def enter_text(self, selector, text, timeout=10000):
+        element = self.find_element(selector, timeout)
+        element.fill(text)

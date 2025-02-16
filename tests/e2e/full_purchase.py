@@ -1,11 +1,11 @@
 import pytest
-from selenium.webdriver.common.by import By
+
 from pages.login_page import LoginPage
 from pages.inventory_page import InventoryPage
 from pages.cart_page import CartPage
 from pages.checkout_page import CheckOutPage
 
-def test_checkout_without_any_data(driver):
+def test_full_purchase(driver):
     login_page = LoginPage(driver)
     inventory_page = InventoryPage(driver)
     cart_page = CartPage(driver)
@@ -18,4 +18,5 @@ def test_checkout_without_any_data(driver):
     checkout_page.full_checkout_data("Name", "LastName", "1234")
     checkout_page.click_element(checkout_page.SUBMIT_BUTTON)
 
-    assert "checkout-step-two" in  driver.current_url, "wrong destination, it's supposed to be 2nd step of checkout"
+    assert "checkout-step-two" in  driver.url, "wrong destination, it's supposed to be 2nd step of checkout"
+    driver.screenshot(path="screenshots/full_purchase.png")
